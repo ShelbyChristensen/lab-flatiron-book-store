@@ -45,3 +45,33 @@ const bookStore = {
 
 // Write your code here!
 
+
+//Select the element by ID Header
+const bookStoreTitle = document.getElementById("header");
+bookStoreTitle.textContent = bookStore.name;      //change textContent to name of bookStore.name
+
+//Add each book to the page
+const bookList = document.getElementById("book-list");
+
+bookStore.books.forEach(book => {
+  const bookContainer = document.createElement("li");
+
+  const bookTitle = document.createElement("h3");
+  bookTitle.textContent = book.title;
+
+  const bookAuthor = document.createElement("p");
+  bookAuthor.textContent = book.author;
+
+  const bookImage = document.createElement("img");
+  bookImage.src = book.imageUrl;
+
+  //Append to Add everything to the container
+  bookContainer.append(bookTitle, bookAuthor, bookImage);
+
+  //Append to Add the container to the list
+  bookList.appendChild(bookContainer);
+});
+
+
+const toDelete = document.getElementById("delete-this");
+toDelete.remove(); // or: toDelete.parentNode.removeChild(toDelete);
